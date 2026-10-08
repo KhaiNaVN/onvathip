@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnVaThi - Ôn Thi Thông Minh Cùng AI</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 3s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for elements not easily handled by utility classes */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
+                        <i class="ph-bold ph-graduation-cap text-2xl"></i>
+                    </div>
+                    <span class="font-bold text-2xl tracking-tight text-slate-900">OnVaThi</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#features" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Tính năng</a>
+                    <a href="#how-it-works" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Cách hoạt động</a>
+                    <a href="#pricing" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Bảng giá</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex items-center">
+                    <a href="#get-started" class="bg-slate-900 hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5">
+                        Bắt đầu ngay
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-slate-600 hover:text-slate-900 focus:outline-none">
+                        <i class="ph ph-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Blobs -->
+        <div class="hero-blob bg-blue-300 w-96 h-96 rounded-full top-0 left-[-10%] mix-blend-multiply animate-float"></div>
+        <div class="hero-blob bg-indigo-300 w-96 h-96 rounded-full bottom-[-10%] right-[-5%] mix-blend-multiply animate-float-delayed"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                
+                <!-- Hero Text -->
+                <div class="text-center lg:text-left animate-fade-in-up">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100/50 text-blue-700 font-medium text-sm mb-6 border border-blue-200">
+                        <span class="relative flex h-2.5 w-2.5">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-600"></span>
+                        </span>
+                        Được hỗ trợ bởi công nghệ Claude AI
+                    </div>
+                    <h1 class="text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
+                        Ôn Thi <span class="gradient-text">Thông Minh</span> <br class="hidden lg:block"> Cùng AI
+                    </h1>
+                    <p class="text-lg lg:text-xl text-slate-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Làm chủ mọi kỳ thi với sức mạnh của trí tuệ nhân tạo. OnVaThi cung cấp lộ trình học cá nhân hóa, phản hồi chính xác và hướng dẫn chuyên sâu giúp bạn đạt điểm tối đa một cách tối ưu nhất.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#get-started" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-[0_8px_30px_rgb(37,99,235,0.3)] hover:shadow-[0_8px_30px_rgb(37,99,235,0.5)] transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                            Bắt đầu ôn thi ngay <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                        <a href="#features" class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-sm flex items-center justify-center gap-2">
+                            Tìm hiểu thêm
+                        </a>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="mt-10 grid grid-cols-3 gap-4 border-t border-slate-200 pt-8 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
+                        <div>
+                            <div class="font-bold text-2xl text-slate-900">10K+</div>
+                            <div class="text-sm text-slate-500 font-medium">Học viên</div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-2xl text-slate-900">50K+</div>
+                            <div class="text-sm text-slate-500 font-medium">Đề thi</div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-2xl text-slate-900">98%</div>
+                            <div class="text-sm text-slate-500 font-medium">Đỗ nguyện vọng</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Illustration (Abstract CSS/SVG) -->
+                <div class="relative lg:h-[600px] flex justify-center items-center opacity-0 animate-[fadeInUp_0.8s_ease-out_0.3s_forwards]">
+                    <!-- Main Dashboard Mockup -->
+                    <div class="relative w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-100 p-6 z-20 transform rotate-[-2deg] transition-transform hover:rotate-0 duration-500">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-amber-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                            </div>
+                            <div class="text-xs font-semibold text-slate-400 bg-slate-100 px-2 py-1 rounded-md">Claude AI Tutor</div>
+                        </div>
+                        <div class="space-y-4">
+                            <!-- User Message -->
+                            <div class="flex justify-end">
+                                <div class="bg-blue-600 text-white rounded-2xl rounded-tr-sm px-4 py-3 text-sm max-w-[85%] shadow-sm">
+                                    Giải thích giúp mình tại sao lại chọn đáp án C ở câu 15?
+                                </div>
+                            </div>
+                            <!-- AI Message -->
+                            <div class="flex justify-start">
+                                <div class="bg-slate-50 border border-slate-100 text-slate-700 rounded-2xl rounded-tl-sm px-4 py-3 text-sm max-w-[95%] shadow-sm leading-relaxed">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i class="ph-fill ph-robot text-blue-600 text-lg"></i>
+                                        <span class="font-semibold text-slate-900">Gia sư AI</span>
+                                    </div>
+                                    Ở câu 15, đáp án C là chính xác vì theo nguyên lý bảo toàn năng lượng... <br><br>
+                                    <div class="bg-blue-50 p-2 rounded border border-blue-100 text-blue-800 text-xs mt-2 font-mono">
+                                        W = Wd + Wt = const
+                                    </div>
+                                    <div class="mt-2 text-xs text-slate-500 border-t pt-2 border-slate-200">
+                                        Độ chính xác: 100% (Theo chuẩn SGK)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Elements -->
+                    <div class="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-br from-amber-300 to-orange-400 rounded-2xl rotate-12 shadow-lg animate-float-delayed z-10 flex items-center justify-center text-white">
+                         <i class="ph-bold ph-exam text-5xl opacity-80"></i>
+                    </div>
+                    <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full shadow-lg animate-float z-30 flex items-center justify-center text-white border-4 border-white">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">A+</div>
+                            <div class="text-xs font-medium uppercase tracking-wider">Mục tiêu</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-blue-600 font-semibold tracking-wide uppercase text-sm mb-3">Tính Năng Nổi Bật</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Trải nghiệm học tập thế hệ mới</h3>
+                <p class="text-lg text-slate-600">Chúng tôi kết hợp nền tảng công nghệ LLM tiên tiến nhất với phương pháp sư phạm chuẩn mực để mang lại hiệu quả ôn thi vượt trội.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Feature 1 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 group hover:-translate-y-2 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                    <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-blue-500/30 group-hover:rotate-6 transition-transform">
+                        <i class="ph-regular ph-path text-3xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-4">Cá nhân hoá lộ trình</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Hệ thống tự động phân tích năng lực hiện tại, nhận diện lỗ hổng kiến thức và thiết kế một lộ trình học tập độc bản dành riêng cho bạn, tối ưu hóa từng phút ôn tập.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover:shadow-xl hover:shadow-indigo-500/10 transition-all duration-300 group hover:-translate-y-2 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-100 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                    <div class="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-indigo-500/30 group-hover:-rotate-6 transition-transform">
+                        <i class="ph-regular ph-books text-3xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-4">Ngân hàng đề thi chuẩn hóa</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Kho dữ liệu hàng chục ngàn câu hỏi được kiểm duyệt khắt khe, bám sát cấu trúc đề thi thực tế của Bộ GD&ĐT và các trường đại học hàng đầu, liên tục cập nhật.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover:shadow-xl hover:shadow-teal-500/10 transition-all duration-300 group hover:-translate-y-2 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-teal-100 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                    <div class="w-16 h-16 bg-teal-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-teal-500/30 group-hover:rotate-6 transition-transform">
+                        <i class="ph-regular ph-robot text-3xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-4">Gia sư AI 24/7</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Tích hợp mô hình ngôn ngữ lớn mạnh mẽ nhất (Claude). Gia sư ảo luôn sẵn sàng giải đáp thắc mắc, phân tích từng bước giải và củng cố tư duy phản biện mọi lúc, mọi nơi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-700 to-slate-900 -z-20"></div>
+        <!-- Decorative grid -->
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] -z-10"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                Sẵn sàng chinh phục <br /> mục tiêu học tập của bạn?
+            </h2>
+            <p class="text-blue-100 text-lg mb-10 max-w-2xl mx-auto">
+                Tham gia cùng hàng ngàn học sinh đang sử dụng OnVaThi để tối đa hóa điểm số và mở ra cánh cửa vào các trường đại học mơ ước.
+            </p>
+            <a href="#register" class="inline-block bg-white text-blue-700 hover:bg-slate-50 hover:text-blue-800 px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                Tạo tài khoản miễn phí
+            </a>
+            <p class="mt-6 text-sm text-blue-200">Không yêu cầu thẻ tín dụng. Hủy bất cứ lúc nào.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Brand -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
+                            <i class="ph-bold ph-graduation-cap text-xl"></i>
+                        </div>
+                        <span class="font-bold text-xl text-white">OnVaThi</span>
+                    </div>
+                    <p class="text-sm text-slate-500 mb-6">
+                        Nền tảng ôn thi thông minh ứng dụng AI hàng đầu tại Việt Nam. Học ít hơn, hiểu sâu hơn.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><i class="ph-fill ph-facebook-logo"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><i class="ph-fill ph-youtube-logo"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><i class="ph-fill ph-tiktok-logo"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Sản phẩm</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Tính năng AI</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Ngân hàng đề</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Bảng giá</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Hướng dẫn sử dụng</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Hỗ trợ</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Trung tâm trợ giúp</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Câu hỏi thường gặp</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Liên hệ</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Cộng đồng</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Pháp lý</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Điều khoản dịch vụ</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Chính sách bảo mật</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Quy chế hoạt động</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
+                <p>&copy; 2026 OnVaThi.com. All rights reserved.</p>
+                <div class="mt-4 md:mt-0 flex items-center gap-2">
+                    <span>Powered by</span>
+                    <span class="font-semibold text-slate-300">Claude AI</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to handle glassmorphism navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-sm');
+                nav.style.background = 'rgba(255, 255, 255, 0.9)';
+            } else {
+                nav.classList.remove('shadow-sm');
+                nav.style.background = 'rgba(255, 255, 255, 0.5)';
+            }
+        });
+    </script>
+</body>
+</html>
